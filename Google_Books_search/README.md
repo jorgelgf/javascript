@@ -1,0 +1,1 @@
+Neste projeto contém a base para a criação de uma aplicação de pesquisa utilizando a API Google Books
