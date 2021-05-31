@@ -6,7 +6,7 @@ import { BASE_URL, API_KEY } from "./constants";
 
 //função
 // https://www.w3schools.com/jsref/jsref_tolowercase.asp
-const convertText = (text) => text.split(" ").join("&").toLowerCase();
+const convertText = (text) => text.split(" ").join("+").toLowerCase();
 const searchEl = document.querySelector("#search");
 const searchButtonEl = document.querySelector("#searchButton");
 const contentEl = document.querySelector("#content");
