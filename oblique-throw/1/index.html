@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+Preto Y(t)<br> Cinza X(t)
+  <meta charset="UTF-8">
+  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="fisica.js"></script>
+
+ <meta content="width=device-width, initial-scale=1" name="viewport">
+
+
+    <script src="Chart.min.js"></script>
+
+    <style type="text/css">
+
+    *{
+        font-family: calibri;        
+    }
+
+    .box {
+        margin: 0px auto;
+        width: 70%;
+    }
+
+    .box-chart {
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    </style>  
+
+    <script type="text/javascript">
+        var randomnb = function(){ return Math.round(Math.random()*100)};
+    </script>  
+
+</head>
+
+<body>    
+
+    <div class="box">
+       
+        <div class="box-chart">
+
+            <canvas id="GraficoLine" style="width:100%;"></canvas>
+
+            <script type="text/javascript">
+				
+var g =9.80665;
+var y = vy; //velocidade inicial
+var t =(2*y)/g; //tempo velocidade final
+var Vy = y -g*t; //velocidade no instante final
+var tmmp = y/g; //tempo onde a velocidade eh zero (altura maxima)
+var Vy2 = y -g*tmmp; //velocidade no instalnte de tempo zero
+var alt2 = +vy*tmmp -(g*tmmp*tmmp)/2; //altura maxima
+
+var xt;//posicao de X(t)
+var x = vx;
+xt = x*t;// equacao pra encontrar posicao final de X
+var xtmeio; 
+xtmeio = x*tmmp; //posicao onde se encontra x na altura maxima;
+ 
+                var options = {
+                    responsive:true
+                };
+
+                var data = {
+                    labels: [0,tmmp,t,"t(s)"],
+                    datasets: [
+                        
+                      
+                        {
+                            label: "Posicao Y",
+                            fillColor: "rgba(0,0,0,1)",
+                            strokeColor: "rgba(0,0,0,0)",
+                            pointColor: "rgba(151,187,205,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(151,187,205,1)",
+                            data: [0,alt2,0]
+                        },
+                        {
+                            label: "Posicao X",
+                            fillColor: "rgba(100,100,100,0.3)",
+                            strokeColor: "rgba(100,100,100,1)",
+                            pointColor: "rgba(130,130,130,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(130,130,130,1)",
+                            data: [0,xtmeio,xt]
+                        }/*,
+                        {
+                            label: "Velocidade Y",
+                            fillColor: "rgba(10,110,5,0.3)",
+                            strokeColor: "rgba(100,100,100,1)",
+                            pointColor: "rgba(130,130,130,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(130,130,130,1)",
+                            data: [0,vy,0]
+                        }*/
+                    ]
+                };               
+                
+                window.onload = function(){
+
+                    var ctx = document.getElementById("GraficoLine").getContext("2d");
+                    var LineChart = new Chart(ctx).Line(data, options);
+                }  
+            </script>
+        </div>
+    
+    </div>
+</body>
+</html>
