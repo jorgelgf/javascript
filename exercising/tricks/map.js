@@ -1,6 +1,6 @@
 
 //maps ele cria um array novo com valores diferentes.
-//map nao transforma o array atual, apenas transforma.
+//map nao transforma o array atual
 
 const a = [1,2,3,4]
 console.log(a)
